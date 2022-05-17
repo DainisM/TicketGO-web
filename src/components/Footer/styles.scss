@@ -1,0 +1,53 @@
+.footer {
+	background-color: #008b8b;
+
+	.wrap {
+		width: 100%;
+		padding: 20px 10px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+
+		.socials,
+		.help,
+		.about,
+		.terms {
+			display: inline-block;
+
+			h3 {
+				width: 100%;
+				margin: 0 auto 2rem auto;
+			}
+
+			ul {
+				margin: 0;
+				padding: 0;
+			}
+
+			li {
+				margin: 0.5rem auto;
+				list-style-type: none;
+			}
+		}
+
+		.socials {
+			width: 30%;
+			text-align: left;
+
+			.socialsLinks {
+				width: 50%;
+				height: 5rem;
+				display: flex;
+				justify-content: space-between;
+
+				a {
+					margin: auto 0;
+				}
+			}
+		}
+
+		.terms {
+			padding-top: 3.5rem;
+		}
+	}
+}
