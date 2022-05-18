@@ -21,7 +21,7 @@ function Header() {
 				<div className="actions">
 					<ul>
 						<li key="1">
-							<Link to="/registration">Register</Link>
+							<Link to="/register">Register</Link>
 						</li>
 
 						<li key="2">

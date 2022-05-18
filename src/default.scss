@@ -18,6 +18,10 @@ body,
 	height: 100%;
 }
 
+.authLayout {
+	height: calc(100% - 10rem - 20rem);
+}
+
 *,
 ::before,
 ::after {

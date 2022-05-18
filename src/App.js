@@ -1,14 +1,48 @@
-import "./default.scss";
+import { Routes, Route } from "react-router-dom";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+//Layouts
+import MainLayout from "./layouts/MainLayout";
+import AuthLayout from "./layouts/AuthLayout";
+
+//Pages
+import Homepage from "./pages/Homepage";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
+import "./default.scss";
 
 function App() {
 	return (
 		<div className="App">
-			<Header />
-			<h1>TicketGO web</h1>
-			<Footer />
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<MainLayout>
+							<Homepage />
+						</MainLayout>
+					}
+					exact
+				/>
+
+				<Route
+					path="/login"
+					element={
+						<AuthLayout>
+							<Login />
+						</AuthLayout>
+					}
+				/>
+
+				<Route
+					path="/register"
+					element={
+						<AuthLayout>
+							<Register />
+						</AuthLayout>
+					}
+				/>
+			</Routes>
 		</div>
 	);
 }
