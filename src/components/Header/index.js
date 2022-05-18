@@ -30,6 +30,16 @@ function Header() {
 					</ul>
 				</div>
 			</div>
+			<div className="navBar">
+				<ul>
+					<li>Music</li>
+					<li>Sports</li>
+					<li>Arts & Theatre</li>
+					<li>Festivals</li>
+					<li>Family</li>
+					<li>Comedy</li>
+				</ul>
+			</div>
 		</header>
 	);
 }
