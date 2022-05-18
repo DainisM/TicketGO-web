@@ -20,13 +20,13 @@ function Footer() {
 				<div className="socials">
 					<img src={Logo} alt="TicketGO Logo" />
 					<div className="socialsLinks">
-						<a href="https://www.facebook.com/">
+						<a href="https://www.facebook.com/" target="blank">
 							<FontAwesomeIcon icon={faFacebook} size="xl" color="white" />
 						</a>
-						<a href="https://twitter.com/">
+						<a href="https://twitter.com/" target="blank">
 							<FontAwesomeIcon icon={faTwitter} size="xl" color="white" />
 						</a>
-						<a href="https://www.instagram.com/">
+						<a href="https://www.instagram.com/" target="blank">
 							<FontAwesomeIcon icon={faInstagram} size="xl" color="white" />
 						</a>
 					</div>

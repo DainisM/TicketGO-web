@@ -1,11 +1,12 @@
 .footer {
+	height: 20rem;
 	background-color: #008b8b;
 
 	.wrap {
 		width: 100%;
 		padding: 20px 10px;
 		margin: 0 auto;
-		display: flex;
+		display: inline-flex;
 		justify-content: space-between;
 
 		.socials,
@@ -13,10 +14,13 @@
 		.about,
 		.terms {
 			display: inline-block;
+			min-width: 150px;
+			color: white;
 
 			h3 {
 				width: 100%;
 				margin: 0 auto 2rem auto;
+				font-weight: bold;
 			}
 
 			ul {
@@ -31,23 +35,25 @@
 		}
 
 		.socials {
-			width: 30%;
+			width: 40%;
+			min-width: 200px;
 			text-align: left;
 
 			.socialsLinks {
-				width: 50%;
+				margin: 0 1rem;
+				max-width: 300px;
 				height: 5rem;
 				display: flex;
-				justify-content: space-between;
 
 				a {
-					margin: auto 0;
+					margin: auto 3rem auto 0;
 				}
 			}
 		}
 
 		.terms {
 			padding-top: 3.5rem;
+			margin-right: 2rem;
 		}
 	}
 }
