@@ -1,0 +1,59 @@
+.loginWrap {
+	width: 60%;
+	margin: auto;
+	padding-top: 5rem;
+	text-align: center;
+	font-size: 2.5rem;
+
+	.loginHeader {
+		text-align: center;
+		margin: 5rem auto;
+
+		h1,
+		h2 {
+			font-size: 3rem;
+		}
+
+		h1 {
+			font-weight: bold;
+		}
+	}
+
+	.form {
+		input {
+			width: 40%;
+			text-align: center;
+			margin: auto;
+			font-size: 2rem;
+			border-radius: 25px;
+		}
+
+		.formBtn {
+			font-size: 2rem;
+			background-color: #008b8b;
+			border-color: #024242;
+			border-width: 2px;
+			border-radius: 35px;
+			padding: 0.5rem 1.5rem;
+		}
+
+		.formBtn:hover {
+			background-color: #024242;
+			border-color: #008b8b;
+		}
+	}
+
+	.links {
+		margin-top: 3rem;
+
+		a {
+			text-decoration: none;
+			color: #024242;
+			font-weight: 700;
+		}
+
+		a:hover {
+			color: #008b8b;
+		}
+	}
+}
