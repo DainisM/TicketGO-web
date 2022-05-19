@@ -12,7 +12,7 @@ import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
 
 //Pages
-import Homepage from "./pages/Homepage";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
@@ -29,7 +29,7 @@ function App() {
 						path="/"
 						element={
 							<MainLayout>
-								<Homepage />
+								<Home />
 							</MainLayout>
 						}
 						exact

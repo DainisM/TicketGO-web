@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useRealmApp } from "../../RealmApp";
 import "./styles.scss";
 
-const Login = () => {
+const SignIn = () => {
 	//Accessing Realm App
 	const app = useRealmApp();
 
@@ -81,4 +81,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default SignIn;
