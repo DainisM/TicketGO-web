@@ -19,7 +19,7 @@ body,
 }
 
 .authLayout {
-	height: calc(100% - 10rem - 20rem);
+	min-height: calc(100% - 10rem - 20rem);
 }
 
 *,
