@@ -1,10 +1,17 @@
 import React, { useState } from "react";
+import { Form, ProgressBar, Spinner } from "react-bootstrap";
+
+import * as Realm from "realm-web";
+import { useRealmApp } from "../../RealmApp";
+
 import UserInfo from "./UserInfo";
 import AddressInfo from "./AddressInfo";
 import TermsInfo from "./TermsInfo";
-import { Form, ProgressBar } from "react-bootstrap";
 
 import "./styles.scss";
+import { useNavigate } from "react-router-dom";
+import gql from "graphql-tag";
+import { useMutation } from "@apollo/client";
 
 const INITIAL_STATE = {
 	email: "",
@@ -34,11 +41,39 @@ const INITIAL_ERRORS = {
 	termsError: "",
 };
 
+const UpdateUserMutation = gql`
+	mutation updateUser($userId: ObjectId!, $updates: String!) {
+		updateOneUser(query: { _id: $userId }, set: { first_name: $updates }) {
+			_id
+			first_name
+		}
+	}
+`;
+
+// updateOneUser(
+//     query: {_id: "6285feedc2826f63cc56d52b"}
+//     set: {first_name: "Tester", last_name: "leTest"}
+//   ) {
+//     _id
+//     first_name
+//     last_name
+//   }
+
 const SignUp = () => {
+	//Accessing Realm App
+	const app = useRealmApp();
+	const client = useRealmApp();
+
+	const [updateUserInfo] = useMutation(UpdateUserMutation);
+
 	//State hooks
 	const [step, setStep] = useState(0);
 	const [formData, setFormData] = useState(INITIAL_STATE);
 	const [errors, setErrors] = useState(INITIAL_ERRORS);
+	const [loading, setLoading] = useState(false);
+
+	//Get hook for navigating
+	const history = useNavigate();
 
 	//Array with titles for form
 	const FormTitles = [
@@ -84,6 +119,57 @@ const SignUp = () => {
 		}
 	};
 
+	const handleUserRegister = async () => {
+		const usersDB = app.currentUser
+			.mongoClient("mongodb-atlas")
+			.db("TicketGO")
+			.collection("Users");
+
+		setLoading(true);
+
+		try {
+			// await app.currentUser.logOut();
+
+			// await app.emailPasswordAuth.registerUser(
+			// 	formData.email,
+			// 	formData.password
+			// );
+
+			// await app.logIn(
+			// 	Realm.Credentials.emailPassword(formData.email, formData.password)
+			// );
+
+			console.log(app.currentUser.id);
+
+			usersDB
+				.updateOne(
+					{ _id: Realm.BSON.ObjectID(app.currentUser.id) },
+					{
+						$set: {
+							first_name: formData.firstName,
+							last_name: formData.lastName,
+							mobile: formData.phone,
+							zip_code: formData.post,
+							city: formData.city,
+							address: formData.address,
+							country: formData.country,
+						},
+					},
+					{ upsert: true }
+				)
+				.then(() => {
+					setLoading(true);
+					// history("/");
+				})
+				.catch((err) => {
+					alert(err);
+					setLoading(false);
+				});
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
 	//Method to handle "next" button clicks
 	const handleFormBtn = () => {
 		//If current step is 0 when btn is clicked then invoke first step validation and if true then add 1 to step (go to next step)
@@ -100,9 +186,27 @@ const SignUp = () => {
 		}
 		//Else in our situation when step is 2 when btn is clicked then invoke last step validation and if true then submit
 		else {
+			console.log(app.currentUser.id);
+
+			//handleUserRegister();
+
+			updateUserInfo({
+				variables: {
+					userId: Realm.BSON.ObjectID(app.currentUser.id),
+					updates: {
+						first_name: JSON.stringify(formData.firstName),
+						last_name: JSON.stringify(formData.lastName),
+						mobile: JSON.stringify(formData.phone),
+						zip_code: JSON.stringify(formData.post),
+						city: JSON.stringify(formData.city),
+						address: JSON.stringify(formData.address),
+						country: JSON.stringify(formData.country),
+					},
+				},
+			});
+
 			if (validateLastStep()) {
-				alert("FORM SUBMITTED");
-				console.log(formData);
+				// handleUserRegister();
 			}
 		}
 	};
@@ -251,25 +355,33 @@ const SignUp = () => {
 				<p>Step {step + 1} of 3</p>
 			</div>
 
-			<div className="form-container">
-				<Form.Group className="mb-3 form-header">
-					<h2>{FormTitles[step]}</h2>
-				</Form.Group>
-				<Form.Group className="mb-5 form-body">{StepDisplay()}</Form.Group>
-				<Form.Group className="mb-5 form-actions">
-					<button
-						disabled={step === 0}
-						onClick={() => {
-							setStep((currStep) => currStep - 1);
-						}}
-					>
-						Previous
-					</button>
-					<button onClick={handleFormBtn}>
-						{step === 2 ? "Register" : "Next"}
-					</button>
-				</Form.Group>
-			</div>
+			{loading ? (
+				<Spinner
+					animation="border"
+					variant="info"
+					style={{ width: "4rem", height: "4rem" }}
+				/>
+			) : (
+				<div className="form-container">
+					<Form.Group className="mb-3 form-header">
+						<h2>{FormTitles[step]}</h2>
+					</Form.Group>
+					<Form.Group className="mb-5 form-body">{StepDisplay()}</Form.Group>
+					<Form.Group className="mb-5 form-actions">
+						<button
+							disabled={step === 0}
+							onClick={() => {
+								setStep((currStep) => currStep - 1);
+							}}
+						>
+							Previous
+						</button>
+						<button onClick={handleFormBtn}>
+							{step === 2 ? "Register" : "Next"}
+						</button>
+					</Form.Group>
+				</div>
+			)}
 		</div>
 	);
 };
