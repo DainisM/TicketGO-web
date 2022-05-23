@@ -1,10 +1,14 @@
 import React from "react";
 
+import EventCarousel from "../components/EventCarousel";
+import EventScrollSlide from "../components/EventScrollSlide";
+
 const Home = () => {
 	return (
-		<div>
-			<h1>TicketGO Homepage</h1>
-		</div>
+		<>
+			<EventCarousel />
+			<EventScrollSlide />
+		</>
 	);
 };
 

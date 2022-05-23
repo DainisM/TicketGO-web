@@ -15,6 +15,7 @@ import AuthLayout from "./layouts/AuthLayout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Event from "./pages/Event";
 
 import "./default.scss";
 
@@ -49,6 +50,15 @@ function App() {
 						element={
 							<AuthLayout>
 								<Register />
+							</AuthLayout>
+						}
+					/>
+
+					<Route
+						path="/event/:eventId"
+						element={
+							<AuthLayout>
+								<Event />
 							</AuthLayout>
 						}
 					/>
