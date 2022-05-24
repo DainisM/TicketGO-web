@@ -31,6 +31,7 @@ const SignIn = () => {
 			history("/");
 		} catch (error) {
 			setIsLoggingIn(false);
+			alert(error);
 			//If Error occured then thor new error
 			throw new Error(error);
 		}
