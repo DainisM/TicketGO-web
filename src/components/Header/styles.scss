@@ -49,10 +49,24 @@
 			justify-content: center;
 			text-align: center;
 
+			.signOutBtn {
+				border-radius: 20px;
+				padding: 3px;
+				border: 3px solid white;
+				background-color: #008b8b;
+				color: white;
+			}
+
 			ul,
 			li {
 				margin: 0;
 				margin-top: 1.25rem;
+				padding: 0;
+			}
+
+			.loggedUl {
+				margin: 0;
+				margin-top: 1rem;
 				padding: 0;
 			}
 
