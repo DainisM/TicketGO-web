@@ -23,6 +23,10 @@ const SignIn = () => {
 
 		//Try to login into Realm app with email and password as credentials and if success then navigate to homepage
 		try {
+			//If there is a logged user then log it out from realm
+			await app.currentUser.logOut();
+
+			//Log in with email and password
 			await app.logIn(Realm.Credentials.emailPassword(email, password));
 			history("/");
 		} catch (error) {
