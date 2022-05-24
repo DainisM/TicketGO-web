@@ -23,6 +23,17 @@ export const RealmAppProvider = ({ appId, children }) => {
 		setApp(new Realm.App(appId));
 	}, [appId]);
 
+	//On reload if there is no current user who is logged in then log in with anonymous user
+	useEffect(() => {
+		async function init() {
+			if (!app.currentUser) {
+				await app.logIn(Realm.Credentials.anonymous());
+			}
+		}
+
+		init();
+	}, [app]);
+
 	// Wrapping the Realm App user state
 	const [currentUser, setCurrentUser] = React.useState(app.currentUser);
 
