@@ -1,13 +1,15 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
+import EventInfo from "../components/EventInfo";
+
 const Event = () => {
+	//Ger event ID from params using useParams hook
 	let { eventId } = useParams();
 	return (
-		<div>
-			<h1>Event</h1>
-			<h4>{eventId}</h4>
-		</div>
+		<>
+			<EventInfo eventId={eventId} />
+		</>
 	);
 };
 

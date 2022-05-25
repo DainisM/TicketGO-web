@@ -1,0 +1,108 @@
+.eventWrap {
+	display: inline-flex;
+
+	.eventMain,
+	.eventInfo {
+		padding: 2rem;
+		margin: 0 2rem;
+		border: 1px solid;
+		min-height: calc(100vh - 10rem - 20rem);
+	}
+
+	.eventMain {
+		flex: 70%;
+
+		.mainInfo {
+			display: inline-flex;
+		}
+
+		.imageWrap {
+			width: 95%;
+
+			img {
+				width: inherit;
+				object-fit: cover;
+			}
+		}
+
+		.eventDescription {
+			font-size: 2.3rem;
+			margin: 2rem auto;
+
+			p {
+				margin-bottom: 1.3rem;
+			}
+		}
+
+		.infoWrap {
+			flex: 35%;
+			margin-top: 2rem;
+
+			h1 {
+				font-size: 2.5rem;
+				color: darkcyan;
+				font-weight: bold;
+				margin-bottom: 5rem;
+			}
+
+			p {
+				margin-bottom: 2rem;
+			}
+
+			button {
+				margin: 3rem auto;
+				color: white;
+				font-size: 2rem;
+				background-color: #008b8b;
+				border-color: #024242;
+				border-width: 2px;
+				border-radius: 35px;
+				padding: 0.5rem 1.5rem;
+			}
+
+			button:hover {
+				background-color: #024242;
+				border-color: #008b8b;
+			}
+		}
+	}
+
+	.eventInfo {
+		flex: 30%;
+
+		h3 {
+			font-weight: bold;
+			text-align: center;
+			font-size: 3rem;
+			margin-bottom: 1.5rem;
+		}
+
+		.note,
+		.info,
+		.venue {
+			margin: 7rem auto;
+		}
+
+		.info {
+			p {
+				margin-bottom: 1.5rem;
+			}
+		}
+
+		.venue {
+			text-align: center;
+
+			.venueLink {
+				text-decoration: none;
+				margin: 1rem auto;
+				color: darkcyan;
+				font-size: 2rem;
+				font-weight: 700;
+			}
+
+			.venueAddress {
+				margin: 1.5rem auto;
+			}
+		}
+	}
+}
