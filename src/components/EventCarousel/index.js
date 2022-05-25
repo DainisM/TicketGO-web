@@ -12,7 +12,7 @@ import "./styles.scss";
 // Graphql mutation to get event ids, images and names where event rank is true
 const ALL_EVENTS = gql`
 	query AllEvents {
-		events(query: { rank: true }) {
+		events(query: { status: "On Going", rank: true }) {
 			_id
 			images
 			name

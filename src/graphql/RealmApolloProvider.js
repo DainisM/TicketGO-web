@@ -10,9 +10,7 @@ import {
 const createRealmApolloClient = (app) => {
 	const link = new HttpLink({
 		// Realm apps GraphQL endpoint using App ID
-		//uri: `https://realm.mongodb.com/api/client/v2.0/app/${app.id}/graphql`,
-		//uri: `https://eu-central-1.aws.realm.mongodb.com/api/client/v2.0/app/${app.id}/graphql`,
-		uri: `https://eu-central-1.aws.realm.mongodb.com/api/client/v2.0/app/ticketgo-realm-yiuzm/graphql`,
+		uri: `https://eu-central-1.aws.realm.mongodb.com/api/client/v2.0/app/${app.id}/graphql`,
 
 		// A fetch handler adds the logged user's access token to GraphQL requests
 		fetch: async (uri, options) => {
