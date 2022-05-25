@@ -110,9 +110,6 @@ const SignUp = () => {
 		setLoading(true);
 
 		try {
-			//If there is a logged user then log it out from realm
-			await app.currentUser.logOut();
-
 			//Create new user with email and password in realm app
 			await app.emailPasswordAuth.registerUser(
 				formData.email,

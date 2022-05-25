@@ -28,6 +28,7 @@ export const RealmAppProvider = ({ appId, children }) => {
 		async function init() {
 			if (!app.currentUser) {
 				await app.logIn(Realm.Credentials.anonymous());
+				window.location.reload();
 			}
 		}
 
