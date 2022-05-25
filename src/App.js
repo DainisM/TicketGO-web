@@ -16,6 +16,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Event from "./pages/Event";
+import Profile from "./pages/Profile";
+import Venue from "./pages/Venue";
 
 import "./default.scss";
 
@@ -55,10 +57,28 @@ function App() {
 					/>
 
 					<Route
+						path="/profile"
+						element={
+							<AuthLayout>
+								<Profile />
+							</AuthLayout>
+						}
+					/>
+
+					<Route
 						path="/event/:eventId"
 						element={
 							<AuthLayout>
 								<Event />
+							</AuthLayout>
+						}
+					/>
+
+					<Route
+						path="/venue/:venueId"
+						element={
+							<AuthLayout>
+								<Venue />
 							</AuthLayout>
 						}
 					/>
