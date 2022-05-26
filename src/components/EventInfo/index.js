@@ -26,6 +26,7 @@ const GET_EVENT = gql`
 			age_restriction
 			info
 			name
+			url
 			images
 			dates {
 				entry
@@ -118,9 +119,26 @@ const EventInfo = ({ eventId }) => {
 								size="1x"
 								style={{ marginRight: "1rem" }}
 							/>
-							{data.event.price.min} - {data.event.price.max}{" "}
+							{data.event.price.min === data.event.price.max ? (
+								<span>{data.event.price.min} </span>
+							) : (
+								<span>
+									{data.event.price.min} - {data.event.price.max}{" "}
+								</span>
+							)}
+
 							{data.event.price.currency}
 						</p>
+						{data.event.url && (
+							<div className="eventUrl">
+								<p>
+									<b>See more:</b>{" "}
+									<a href={data.event.url} target="_blank" rel="noreferrer">
+										{data.event.url}
+									</a>
+								</p>
+							</div>
+						)}
 						<button>Buy tickets</button>
 					</div>
 				</div>
