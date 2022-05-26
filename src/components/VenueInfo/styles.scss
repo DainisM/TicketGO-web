@@ -1,0 +1,40 @@
+.venueWrap {
+	background-image: url("../../assets/background.png");
+	background-size: cover;
+	padding: 2rem;
+
+	h1 {
+		color: white;
+		font-weight: bold;
+		font-size: 5rem;
+		margin: 0rem 1rem 3rem;
+	}
+
+	.flexDiv {
+		display: inline-flex;
+		color: white;
+
+		.venueInfoWrap {
+			flex: 75%;
+			display: inline-flex;
+
+			.venueImg {
+				flex: 60%;
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.venueInfoData {
+				flex: 25%;
+
+				margin-left: 3rem;
+			}
+		}
+
+		.venueDescriptionWrap {
+			flex: 30%;
+		}
+	}
+}
