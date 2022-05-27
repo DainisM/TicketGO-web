@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
@@ -13,12 +13,23 @@ function Header() {
 	//Accessing Realm App
 	const app = useRealmApp();
 
+	//Get hook for navigating
+	const history = useNavigate();
+
 	//Method to handle user signout
 	const handleSignOut = async () => {
 		//Logout current user
 		await app.currentUser.logOut();
-		//Refresh page
-		window.location.reload();
+
+		//Check if current page is homepage
+		if (window.location.pathname === "/") {
+			//If it is then refresh page
+			window.location.reload();
+		} else {
+			//Navigate to homepage
+			history("/");
+			window.location.reload();
+		}
 	};
 
 	return (
