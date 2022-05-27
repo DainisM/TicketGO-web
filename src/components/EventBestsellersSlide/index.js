@@ -14,7 +14,7 @@ import "./styles.scss";
 const BESTSELLER_EVENTS = gql`
 	query BestsellerEvents {
 		events(
-			query: { status: "On Going", rank: false, tickets_sold_gt: 1000 }
+			query: { status: "On Going", rank: false, tickets_sold_gt: 2000 }
 			limit: 5
 			sortBy: TICKETS_SOLD_DESC
 		) {
