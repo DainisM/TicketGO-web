@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, ProgressBar, Spinner } from "react-bootstrap";
 
 import * as Realm from "realm-web";
 import { useRealmApp } from "../../RealmApp";
+
+import { isAnon } from "../../utils";
 
 import UserInfo from "./UserInfo";
 import AddressInfo from "./AddressInfo";
@@ -44,6 +46,11 @@ const INITIAL_ERRORS = {
 const SignUp = () => {
 	//Accessing Realm App
 	const app = useRealmApp();
+
+	//Check when current user changed and if new user is not anonymous user then call for funtion to update user data
+	useEffect(() => {
+		!isAnon(app.currentUser) && updateUserData();
+	}, [app.currentUser]);
 
 	//State hooks
 	const [step, setStep] = useState(0);
@@ -98,18 +105,55 @@ const SignUp = () => {
 		}
 	};
 
-	//method to handle user registration
-	const handleUserRegister = async () => {
+	//Method used to update user data
+	const updateUserData = () => {
 		//Initialize the db and collection in which we update user data
 		const usersDB = app.currentUser
 			.mongoClient("mongodb-atlas")
 			.db("TicketGO")
 			.collection("Users");
 
+		//Update user data collection with this data
+		usersDB
+			//Update user where user._id is currently logged in user id
+			.updateOne(
+				{ _id: Realm.BSON.ObjectID(app.currentUser.id) },
+				{
+					$set: {
+						first_name: formData.firstName,
+						last_name: formData.lastName,
+						mobile: formData.phone,
+						zip_code: formData.post,
+						city: formData.city,
+						address: formData.address,
+						country: formData.country,
+					},
+				},
+				{ upsert: true }
+			)
+			//If success then set loading to false and redirect to homepage and also set back state to initial
+			.then(() => {
+				setLoading(false);
+				history("/");
+				setErrors(INITIAL_ERRORS);
+				setFormData(INITIAL_STATE);
+			})
+			//Or of error show alert and set loading to false
+			.catch((err) => {
+				alert(err);
+				setLoading(false);
+			});
+	};
+
+	//method to handle user registration
+	const handleUserRegister = async () => {
 		//Set loading to try to show spinner
 		setLoading(true);
 
 		try {
+			//If there is a logged user then log it out from realm
+			await app.currentUser.logOut();
+
 			//Create new user with email and password in realm app
 			await app.emailPasswordAuth.registerUser(
 				formData.email,
@@ -120,37 +164,6 @@ const SignUp = () => {
 			await app.logIn(
 				Realm.Credentials.emailPassword(formData.email, formData.password)
 			);
-
-			//Update user data collection with this data
-			usersDB
-				//Update user where user._id is currently logged in user id
-				.updateOne(
-					{ _id: Realm.BSON.ObjectID(app.currentUser.id) },
-					{
-						$set: {
-							first_name: formData.firstName,
-							last_name: formData.lastName,
-							mobile: formData.phone,
-							zip_code: formData.post,
-							city: formData.city,
-							address: formData.address,
-							country: formData.country,
-						},
-					},
-					{ upsert: true }
-				)
-				//If success then set loading to false and redirect to homepage and also set back state to initial
-				.then(() => {
-					setLoading(false);
-					history("/");
-					setErrors(INITIAL_ERRORS);
-					setFormData(INITIAL_STATE);
-				})
-				//Or of error show alert and set loading to false
-				.catch((err) => {
-					alert(err);
-					setLoading(false);
-				});
 		} catch (error) {
 			setLoading(false);
 			throw new Error(error);
