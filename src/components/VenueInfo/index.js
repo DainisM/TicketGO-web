@@ -1,6 +1,6 @@
 import React from "react";
 import * as Realm from "realm-web";
-import { Link } from "react-router-dom";
+
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/client";
 
@@ -88,11 +88,17 @@ const VenueInfo = ({ venueId }) => {
 						</div>
 					</div>
 					<div className="venueDescriptionWrap">
-						<p>{data.venue.note}</p>
+						{data.venue.note.split("/n").map((note, index) => (
+							<p key={index}>
+								{note}
+								<br />
+							</p>
+						))}
 					</div>
 				</div>
 			</div>
-			<div>
+			<div className="venueEventsWrap">
+				<h3>Events</h3>
 				<VenueEvents venueId={venueId} />
 			</div>
 		</div>

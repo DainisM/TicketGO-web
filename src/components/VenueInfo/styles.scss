@@ -30,11 +30,79 @@
 				flex: 25%;
 
 				margin-left: 3rem;
+
+				.venueLink {
+					margin: 3rem auto;
+				}
 			}
 		}
 
 		.venueDescriptionWrap {
 			flex: 30%;
+			padding: 0 2rem;
+		}
+	}
+}
+
+.venueEventsWrap {
+	margin-top: 2rem;
+
+	h3 {
+		text-align: center;
+		font-size: 5rem;
+		font-weight: 600;
+		color: #024242;
+		margin-bottom: 3rem;
+	}
+
+	.itemsWrap {
+		margin: 2rem auto;
+
+		.items {
+			display: list-item;
+			border: 1px solid darkcyan;
+
+			.singleItem {
+				width: 100%;
+				display: table;
+				table-layout: fixed;
+				padding: 1rem;
+
+				.itemDate {
+					display: table-cell;
+					width: 15%;
+					vertical-align: middle;
+					text-align: center;
+					font-size: 3rem;
+					font-weight: bold;
+				}
+
+				.itemName {
+					display: table-cell;
+					width: 75%;
+					vertical-align: middle;
+
+					#name {
+						font-size: 3rem;
+						font-weight: bold;
+					}
+				}
+
+				.itemLink {
+					display: table-cell;
+					width: 10%;
+					vertical-align: middle;
+
+					a {
+						color: darkcyan;
+						text-decoration: none;
+						border: 2px solid darkcyan;
+						border-radius: 20px;
+						padding: 0.5rem;
+						background-color: cyan;
+					}
+				}
+			}
 		}
 	}
 }
