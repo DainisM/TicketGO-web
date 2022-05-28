@@ -8,7 +8,7 @@ import moment from "moment";
 import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
 
-// Graphql mutation to get event by its ID
+// Graphql query to get events that ar associated with venue ID
 const GET_VENUE_EVENTS = gql`
 	query GetVenueEvents($venueID: ObjectId!) {
 		events(query: { venue: { _id: $venueID } }) {

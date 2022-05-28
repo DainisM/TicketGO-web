@@ -10,7 +10,7 @@ import VenueEvents from "./VenueEvents";
 
 import "./styles.scss";
 
-// Graphql mutation to get event by its ID
+// Graphql mutation to get venue by its ID
 const GET_VENUE = gql`
 	query GetVenue($venueID: ObjectId!) {
 		venue(query: { _id: $venueID }) {
