@@ -91,3 +91,82 @@
 		}
 	}
 }
+
+.modalWrapCarousel {
+	height: 50rem;
+
+	.carousel {
+		height: inherit;
+		padding: 2rem 10%;
+
+		.carousel-indicators {
+			button {
+				background-color: darkcyan;
+				height: 1rem;
+			}
+		}
+
+		.carousel-item {
+			.itemData {
+				display: table;
+				width: 100%;
+				text-align: center;
+
+				.mainInfo {
+					display: table-cell;
+					width: 50%;
+					padding: 0 2rem;
+
+					.eventVenueInfo {
+						padding: 2rem 0;
+					}
+
+					#eventName {
+						overflow-wrap: anywhere;
+						font-size: 3rem;
+						padding: 1rem;
+						border-bottom: 1px solid;
+					}
+
+					#ticketDesc {
+						padding: 3rem 0;
+						border-bottom: 1px solid;
+						border-top: 1px solid;
+					}
+
+					#ticketNote {
+						font-size: 1.3rem;
+					}
+				}
+
+				.additionInfo {
+					display: table-cell;
+					width: 50%;
+					padding: 0 2rem;
+					border-left: 1px solid;
+
+					p {
+						padding: 1rem;
+						border-bottom: 1px solid;
+					}
+
+					.qrCode {
+						margin-top: 2rem;
+					}
+				}
+			}
+		}
+
+		h3 {
+			text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+			color: cyan;
+			font-size: 5rem;
+			font-weight: 700;
+		}
+
+		.carousel-control-prev,
+		.carousel-control-next {
+			width: 10%;
+		}
+	}
+}
