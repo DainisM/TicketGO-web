@@ -56,7 +56,7 @@ const VenueEvents = ({ venueId }) => {
 			{/* Merge data from db into empty array for sorting by event dates start and map then over and show */}
 			{eventItems
 				.concat(data.events)
-				.sort((a, b) => a.dates.start - b.dates.start)
+				.sort((a, b) => new Date(a.dates.start) - new Date(b.dates.start))
 				.map((event) => (
 					<div className="items" key={event._id}>
 						<div className="singleItem">
