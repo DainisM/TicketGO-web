@@ -6,11 +6,7 @@ import VenueInfo from "../components/VenueInfo";
 const Venue = () => {
 	let { venueId } = useParams();
 
-	return (
-		<>
-			<VenueInfo venueId={venueId} />
-		</>
-	);
+	return <VenueInfo venueId={venueId} />;
 };
 
 export default Venue;
