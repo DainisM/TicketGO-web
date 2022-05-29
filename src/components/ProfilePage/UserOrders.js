@@ -47,8 +47,11 @@ const UserOrders = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [orderID, setOrderID] = useState("");
 
+	//Method to handle modal close button
 	const handleModal = () => {
-		setShowModal(!showModal);
+		//When triggered set showModal back to false and orderID back to empty
+		setShowModal(false);
+		setOrderID("");
 	};
 
 	// Use useQuery hook to manage data fetching
