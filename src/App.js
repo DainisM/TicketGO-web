@@ -18,6 +18,7 @@ import Register from "./pages/Register";
 import Event from "./pages/Event";
 import Profile from "./pages/Profile";
 import Venue from "./pages/Venue";
+import Tickets from "./pages/Tickets";
 
 import "./default.scss";
 
@@ -72,6 +73,15 @@ function App() {
 								<Event />
 							</AuthLayout>
 						}
+					/>
+					<Route
+						path="/event/:eventId/tickets"
+						element={
+							<AuthLayout>
+								<Tickets />
+							</AuthLayout>
+						}
+						exact
 					/>
 
 					<Route
