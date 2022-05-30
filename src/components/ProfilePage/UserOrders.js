@@ -16,10 +16,9 @@ import { useQuery } from "@apollo/client";
 // Graphql query to get all user orders by its ID
 const GET_USER_ORDERS = gql`
 	query GetUserOrders($userID: ObjectId!) {
-		orders(query: { user: $userID, status: "On Going" }) {
+		orders(query: { user: { _id: $userID }, status: "On Going" }) {
 			_id
 			status
-			user
 			event {
 				_id
 				images

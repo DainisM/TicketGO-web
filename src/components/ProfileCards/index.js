@@ -4,11 +4,32 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 
 import "./styles.scss";
+import gql from "graphql-tag";
+import { useMutation } from "@apollo/client";
 
-const ProfileCards = ({ header, data, query, isEmail }) => {
+// Graphql mutation to update user information by its ID
+const UPDATE_USER_INFO = gql`
+	mutation UpdateUserMobile($userID: ObjectId!, $updates: UserUpdateInput!) {
+		updateOneUser(query: { _id: $userID }, set: $updates) {
+			_id
+			first_name
+			last_name
+			mobile
+			address
+			zip_code
+			city
+			country
+		}
+	}
+`;
+
+const ProfileCards = ({ header, data, userId, query, isEmail }) => {
 	//State hooks
 	const [userData, setUserData] = useState([]);
 	const [isEditing, setIsEditing] = useState(false);
+
+	// Use useMutation hook to manage data update
+	const [updateUserMobile] = useMutation(UPDATE_USER_INFO);
 
 	//On render set userData to be data getting from props
 	useEffect(() => {
@@ -23,6 +44,67 @@ const ProfileCards = ({ header, data, query, isEmail }) => {
 		clonedData[i][e.target.name] = e.target.value;
 		//Set cloned and updated array into the state
 		setUserData(clonedData);
+	};
+
+	//Method to handle save button click
+	const handleSave = () => {
+		//Switch statement to update object data by passed query String
+		switch (query) {
+			case "UPDATE_USER_INFO":
+				return (
+					//Call for update mutation and pass on variables
+					updateUserMobile({
+						variables: {
+							userID: userId,
+							updates: {
+								first_name: userData[0].value,
+								last_name: userData[1].value,
+							},
+						},
+					}),
+					//Then set isEditing back to false
+					setIsEditing(false)
+				);
+
+			case "UPDATE_USER_MOBILE":
+				return (
+					//Call for update mutation and pass on variables
+					updateUserMobile({
+						variables: {
+							userID: userId,
+							updates: {
+								mobile: userData[0].value,
+							},
+						},
+					}),
+					//Then set isEditing back to false
+					setIsEditing(false)
+				);
+
+			case "UPDATE_USER_ADDRESS":
+				return (
+					//Call for update mutation and pass on variables
+					updateUserMobile({
+						variables: {
+							userID: userId,
+							updates: {
+								address: userData[0].value,
+								zip_code: userData[1].value,
+								city: userData[2].value,
+								country: userData[3].value,
+							},
+						},
+					}),
+					//Then set isEditing back to false
+					setIsEditing(false)
+				);
+
+			default:
+				return (
+					//Then set isEditing back to false
+					setIsEditing(false)
+				);
+		}
 	};
 
 	return (
@@ -71,7 +153,9 @@ const ProfileCards = ({ header, data, query, isEmail }) => {
 							<button id="cancelBtn" onClick={() => setIsEditing(false)}>
 								Cancel
 							</button>
-							<button id="saveBtn">Save</button>
+							<button id="saveBtn" onClick={handleSave}>
+								Save
+							</button>
 						</div>
 					)}
 				</div>
