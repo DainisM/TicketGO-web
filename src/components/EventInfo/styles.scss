@@ -53,7 +53,8 @@
 				margin: 3rem auto;
 			}
 
-			button {
+			.eventButton {
+				text-decoration: none;
 				margin: 3rem auto;
 				color: white;
 				font-size: 2rem;
@@ -64,7 +65,7 @@
 				padding: 0.5rem 1.5rem;
 			}
 
-			button:hover {
+			.eventButton:hover {
 				background-color: #024242;
 				border-color: #008b8b;
 			}

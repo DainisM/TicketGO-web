@@ -139,7 +139,12 @@ const EventInfo = ({ eventId }) => {
 								</p>
 							</div>
 						)}
-						<button>Buy tickets</button>
+						<Link
+							className="eventButton"
+							to={`/event/${data.event._id}/tickets`}
+						>
+							Buy tickets
+						</Link>
 					</div>
 				</div>
 				<div className="eventDescription">
