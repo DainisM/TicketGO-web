@@ -6,7 +6,7 @@ import { useQuery } from "@apollo/client";
 
 import { useRealmApp } from "../../RealmApp";
 
-import ProfileCards from "../ProfileCards";
+import ProfileCards from "../../helpers/ProfileCards";
 
 // Graphql query to get event by its ID
 const GET_USER_DATA = gql`

@@ -4,7 +4,7 @@ import { Form, ProgressBar, Spinner } from "react-bootstrap";
 import * as Realm from "realm-web";
 import { useRealmApp } from "../../RealmApp";
 
-import { isAnon } from "../../utils";
+import { isAnon } from "../../customHooks/isAnon";
 
 import UserInfo from "./UserInfo";
 import AddressInfo from "./AddressInfo";

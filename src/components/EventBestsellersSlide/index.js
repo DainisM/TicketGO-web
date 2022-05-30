@@ -5,8 +5,8 @@ import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
 
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
-import { Card } from "../SliderItems/Card";
-import { LeftArrow, RightArrow } from "../SliderItems/Arrows";
+import { Card } from "../../helpers/SliderItems/Card";
+import { LeftArrow, RightArrow } from "../../helpers/SliderItems/Arrows";
 
 import "./styles.scss";
 

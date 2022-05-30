@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import React from "react";
 
 //Router
 import { Routes, Route } from "react-router-dom";
 
 //Realm
 import RealmApolloProvider from "./graphql/RealmApolloProvider";
-import { useRealmApp, RealmAppProvider } from "./RealmApp";
+import { RealmAppProvider } from "./RealmApp";
+
+//HOC
+import WithAuth from "./HOC/withAuth";
 
 //Layouts
 import MainLayout from "./layouts/MainLayout";
@@ -60,9 +63,11 @@ function App() {
 					<Route
 						path="/profile"
 						element={
-							<AuthLayout>
-								<Profile />
-							</AuthLayout>
+							<WithAuth>
+								<AuthLayout>
+									<Profile />
+								</AuthLayout>
+							</WithAuth>
 						}
 					/>
 
@@ -77,9 +82,11 @@ function App() {
 					<Route
 						path="/event/:eventId/tickets"
 						element={
-							<AuthLayout>
-								<Tickets />
-							</AuthLayout>
+							<WithAuth>
+								<AuthLayout>
+									<Tickets />
+								</AuthLayout>
+							</WithAuth>
 						}
 						exact
 					/>
