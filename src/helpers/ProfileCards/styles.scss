@@ -1,0 +1,86 @@
+.profileCard {
+	width: 60%;
+	margin: 5rem auto;
+	border-radius: 2rem;
+	padding: 2rem;
+	-moz-box-shadow: 0 0 3px #ccc;
+	-webkit-box-shadow: 0 0 3px #ccc;
+	box-shadow: 0 0 10px darkcyan;
+
+	.cardHeader {
+		display: inline-flex;
+		width: 100%;
+
+		h3 {
+			width: 90%;
+			font-size: 3rem;
+			font-weight: bold;
+			margin: 1rem 0;
+		}
+
+		button {
+			padding: 0;
+			min-width: 10rem;
+			justify-content: space-between;
+			background-color: transparent;
+			border: none;
+			font-size: 2.5rem;
+			color: darkcyan;
+		}
+
+		button:hover {
+			font-weight: bold;
+		}
+	}
+
+	.cardBody {
+		margin: 3rem auto;
+
+		#cardEmailNote {
+			margin-bottom: 2rem;
+		}
+
+		label {
+			font-weight: 600;
+			color: darkgray;
+			width: 15rem;
+		}
+
+		input {
+			margin-left: 2rem;
+			border-radius: 20px;
+			padding: 0.3rem 0.7rem;
+		}
+	}
+
+	.cardItem {
+		margin-bottom: 2rem;
+	}
+
+	.cardButtons {
+		text-align: center;
+		justify-content: space-between;
+
+		button {
+			margin: 1rem 5rem;
+		}
+
+		#cancelBtn {
+			border-radius: 2rem;
+			border: 3px solid darkcyan;
+			color: darkcyan;
+			font-weight: bold;
+			padding: 0.3rem 0.7rem;
+			background-color: transparent;
+		}
+
+		#saveBtn {
+			border-radius: 2rem;
+			border: 3px solid darkcyan;
+			color: white;
+			font-weight: bold;
+			padding: 0.3rem 0.7rem;
+			background-color: rgb(0, 192, 192);
+		}
+	}
+}

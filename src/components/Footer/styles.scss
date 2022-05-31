@@ -1,0 +1,59 @@
+.footer {
+	height: 20rem;
+	background-color: #008b8b;
+
+	.wrap {
+		width: 100%;
+		padding: 20px 10px;
+		margin: 0 auto;
+		display: inline-flex;
+		justify-content: space-between;
+
+		.socials,
+		.help,
+		.about,
+		.terms {
+			display: inline-block;
+			min-width: 150px;
+			color: white;
+
+			h3 {
+				width: 100%;
+				margin: 0 auto 2rem auto;
+				font-weight: bold;
+			}
+
+			ul {
+				margin: 0;
+				padding: 0;
+			}
+
+			li {
+				margin: 0.5rem auto;
+				list-style-type: none;
+			}
+		}
+
+		.socials {
+			width: 40%;
+			min-width: 200px;
+			text-align: left;
+
+			.socialsLinks {
+				margin: 0 1rem;
+				max-width: 300px;
+				height: 5rem;
+				display: flex;
+
+				a {
+					margin: auto 3rem auto 0;
+				}
+			}
+		}
+
+		.terms {
+			padding-top: 3.5rem;
+			margin-right: 2rem;
+		}
+	}
+}

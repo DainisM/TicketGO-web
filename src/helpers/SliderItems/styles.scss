@@ -1,0 +1,79 @@
+.arrowBtn {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1rem;
+	border: none;
+	background-color: transparent;
+}
+
+.eventCardLink {
+	text-decoration: none;
+}
+
+.cardWrapper {
+	border: none;
+	display: inline-block;
+	margin: 0 3rem;
+	width: 40rem;
+
+	.cardDiv {
+		background-color: #1fdddd;
+
+		.infoWrapAll {
+			color: black;
+
+			.eventDateTime {
+				font-weight: 600;
+				display: flex;
+				justify-content: space-between;
+			}
+
+			p {
+				font-weight: 600;
+			}
+
+			h3 {
+				font-weight: bold;
+				font-size: 2.5rem;
+				margin-bottom: 1.5rem;
+				height: 7rem;
+			}
+		}
+	}
+
+	.cardDiv2 {
+		background-color: #008b8b;
+		width: 40rem;
+		height: 38rem;
+
+		.infoWrap {
+			p {
+				color: lightgrey;
+			}
+
+			h3 {
+				color: white;
+				font-weight: 700;
+				font-size: 2rem;
+			}
+		}
+	}
+
+	.cardDiv,
+	.cardDiv2 {
+		border-radius: 2rem;
+		padding: 1rem;
+
+		.imgWrap {
+			text-align: center;
+		}
+	}
+
+	img {
+		width: 38rem;
+		height: 29rem;
+		margin: 1rem auto;
+	}
+}

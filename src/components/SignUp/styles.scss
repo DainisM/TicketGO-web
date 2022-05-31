@@ -1,0 +1,85 @@
+.registerWrap {
+	width: 60%;
+	margin: auto;
+	padding-top: 2rem;
+
+	h1 {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	.progressBar {
+		margin-bottom: 2rem;
+
+		p {
+			color: darkcyan;
+			font-weight: 600;
+			margin-top: 1rem;
+		}
+	}
+
+	.form-container {
+		margin: auto;
+
+		a {
+			color: #008b8b;
+			font-weight: bold;
+		}
+
+		h2 {
+			color: darkcyan;
+			font-weight: bold;
+		}
+
+		input {
+			font-size: 1.5rem;
+			border-radius: 20px;
+			padding-left: 1rem;
+		}
+
+		.invalid-feedback {
+			font-size: 1.3rem;
+			padding-left: 1rem;
+		}
+
+		.passInfo {
+			p {
+				font-size: 1.5rem;
+				line-height: 0.8rem;
+			}
+		}
+
+		.checkDiv {
+			.form-check {
+				align-items: center;
+			}
+
+			input {
+				border-radius: 5px;
+				scale: 1.5;
+			}
+		}
+
+		.form-actions {
+			width: 60%;
+			margin: auto;
+			display: flex;
+			justify-content: space-between;
+
+			button {
+				color: white;
+				font-size: 2rem;
+				background-color: #008b8b;
+				border-color: #024242;
+				border-width: 2px;
+				border-radius: 35px;
+				padding: 0.5rem 1.5rem;
+			}
+
+			button:hover {
+				background-color: #024242;
+				border-color: #008b8b;
+			}
+		}
+	}
+}
