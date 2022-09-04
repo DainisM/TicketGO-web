@@ -24,7 +24,7 @@ const GET_EVENT_SECTIONS = gql`
 	}
 `;
 
-const Sections = ({ eventId, handleStep }) => {
+const Sections = ({ eventId, handleStep, handleSetTickets }) => {
 	const [tickets, setTickets] = useState([]);
 	const [totalPrice, setTotalPrice] = useState(0.0);
 
@@ -32,6 +32,11 @@ const Sections = ({ eventId, handleStep }) => {
 	const { loading, error, data } = useQuery(GET_EVENT_SECTIONS, {
 		variables: { eventID: Realm.BSON.ObjectID(eventId) },
 	});
+
+	const handleClick = () => {
+		handleSetTickets(tickets);
+		handleStep();
+	};
 
 	//Method to handle click for adding ticket
 	const handleAddTicket = (sectionId, sectionPrice) => {
@@ -180,7 +185,7 @@ const Sections = ({ eventId, handleStep }) => {
 			)}
 
 			<div className="ticketControls">
-				<button disabled={!tickets.length} onClick={() => handleStep()}>
+				<button disabled={!tickets.length} onClick={() => handleClick()}>
 					Buy Tickets
 				</button>
 				{totalPrice !== 0.0 && (

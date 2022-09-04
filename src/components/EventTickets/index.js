@@ -50,16 +50,23 @@ const EventTickets = () => {
 
 	//State hooks
 	const [step, setStep] = useState(true);
+	const [tickets, setTickets] = useState([]);
 
 	//Method to check step state and display appropriate component
 	const StepDisplay = () => {
 		//If step state is true then return Sections component
 		if (step) {
-			return <Sections eventId={eventId} handleStep={handleStep} />;
+			return (
+				<Sections
+					eventId={eventId}
+					handleStep={handleStep}
+					handleSetTickets={setTickets}
+				/>
+			);
 		}
 		//If step state is other in our case false then return Payment component
 		else {
-			return <Payment handleStep={handleStep} />;
+			return <Payment tickets={tickets} handleStep={handleStep} />;
 		}
 	};
 
