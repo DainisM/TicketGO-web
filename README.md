@@ -4,23 +4,19 @@ This was my school final project.
 
 This was a group project with me and 2 other people. My tasks were to create Frontend and create and manage middleware & DB with one more guy.</br>
 
-TicketGO was a system with 3 main products - Frontend (Web), Backend (Admin) and mobile (Android) applications. The product must be used for ticket sales which will make it possible for the individual venues / festivals to sell tickets to their guests. The product's database, which is MongoDB, is stored in the cloud using MongoDB Atlas and middleware for data management is MongoDB Realm service with sends .
+TicketGO was a system with 3 main products - Frontend (Web) written in ReactJS, Backend (Admin) and mobile (Android) applications. The product must be used for ticket sales which will make it possible for the individual venues / festivals to sell tickets to their guests. The product's database, which is MongoDB, is stored in the cloud using MongoDB Atlas and middleware for data management is MongoDB Realm service which uses GraphQL to send/receive data.
 
-### System requirements were: </br>
+### System requirements for this were: </br>
 
-SPA page which will inform and guide to the app.
-* Splash page
-* Contact
-* Support / FAQ
-* Terms & Privacy </br>
-<b>Extras: </b>
-* Login
-* User profile / User Creation
-* Darkmode
-* Multilanguage
-* Animations 
+* The user can view and search for all events, venues and artists
+* The user can create a user account
+* The user can log in with his user account and use other functions:
+  * Can buy tickets for the various events
+  * Can see the upcoming events
+  * Can see your previous orders with the tickets you have bought
+  * Can view and edit his user information
 
-This website was made in React JS and I added small animations/motions to some elements with the help of <b>framer-motion</b> package and <b>intlt</b> for multilanguage support. Also I made a darkmode which users can toggle (and language) in the header. Also I tried to make it responsive for it to look good also in mobile devices.
+We did not manage to finish it completely, thats why its incomplete and missing some features/functionality. I am working on it in my free time to make it finished and add some more functionality to it.
 
 
 Here you can see how it looks:
