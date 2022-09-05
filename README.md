@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# TicketGO
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This was my school final project.
 
-## Available Scripts
+This was a group project with me and 2 other people. My tasks were to create Frontend and create and manage middleware & DB with one more guy.</br>
 
-In the project directory, you can run:
+TicketGO was a system with 3 main products - Frontend (Web), Backend (Admin) and mobile (Android) applications. The product must be used for ticket sales which will make it possible for the individual venues / festivals to sell tickets to their guests. The product's database, which is MongoDB, is stored in the cloud using MongoDB Atlas and middleware for data management is MongoDB Realm service with sends .
 
-### `npm start`
+### System requirements were: </br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+SPA page which will inform and guide to the app.
+* Splash page
+* Contact
+* Support / FAQ
+* Terms & Privacy </br>
+<b>Extras: </b>
+* Login
+* User profile / User Creation
+* Darkmode
+* Multilanguage
+* Animations 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This website was made in React JS and I added small animations/motions to some elements with the help of <b>framer-motion</b> package and <b>intlt</b> for multilanguage support. Also I made a darkmode which users can toggle (and language) in the header. Also I tried to make it responsive for it to look good also in mobile devices.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Here you can see how it looks:
 
-### `npm run build`
+Main page           |  
+:-------------------------:|
+![](https://github.com/DainisM/Screenshots/blob/master/TicketGO_1.gif)    
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Register & Login
+:-------------------------:|
+![](https://github.com/DainisM/Screenshots/blob/master/TicketGO_2.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Event & Venue info and Tickets for event & Stripe payment          |
+:-------------------------:
+![](https://github.com/DainisM/Screenshots/blob/master/TicketGO_3.gif)  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+User profile info / edit info & user orders with tickets        |
+:-------------------------:
+![](https://github.com/DainisM/Screenshots/blob/master/TicketGO_4.gif)  
