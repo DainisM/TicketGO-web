@@ -16,7 +16,7 @@ TicketGO was a system with 3 main products - Frontend (Web) written in ReactJS, 
   * Can see your previous orders with the tickets you have bought
   * Can view and edit his user information
 
-We did not manage to finish it completely, thats why its incomplete and missing some features/functionality. I am working on it in my free time to make it finished and add some more functionality to it.
+We did not manage to finish it completely, thats why its incomplete and missing some features/functionality. I am working on it in my free time to make it finished and add some more functionality to it like - payment using Stripe, search funtion and etc.
 
 
 Here you can see how it looks:
